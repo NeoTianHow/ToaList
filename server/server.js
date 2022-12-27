@@ -1,7 +1,13 @@
 const express = require("express");
 const app = express();
 const path = require("path");
+const { logger, logEvents } = require("./middleware/logger");
+const errorHandler = require("./middleware/errorHandler");
 const PORT = process.env.PORT || 3500;
+
+app.use(logger);
+
+app.use(express.json());
 
 // Middleware function to serve our css file, whenever
 // a request is made to any route in the application
