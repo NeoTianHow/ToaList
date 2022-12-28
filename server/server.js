@@ -26,6 +26,8 @@ app.use(cookieParser());
 app.use("/", express.static(path.join(__dirname, "public")));
 
 app.use("/", require("./routes/root"));
+app.use("/users", require("./routes/userRoutes"));
+app.use("/tasks", require("./routes/taskRoutes"));
 
 // Handle request to routes that doesn't exist
 // by sending a 404 not found response
